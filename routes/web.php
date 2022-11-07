@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Content;
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    $content = Post::find(1)->post_content;
-    $content->description="Renew Content";
-    $content->save();
-    return dd(Post::find(1)->post_content);
+    return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    // dd(auth()->user()->hasRole('admin'));
+    // dd(auth()->user()->can('edit articles'));
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';

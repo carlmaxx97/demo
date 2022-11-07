@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('contents', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('post_id')->unsigned();
+            $table->uuid('id')->primary();
+            $table->uuid('post_id')->nullable(false);
             $table->text('description');
             $table->timestamps();
             $table->foreign('post_id')->references('id')->on('posts')
