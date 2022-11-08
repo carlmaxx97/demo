@@ -1,31 +1,83 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-    @role('super-admin|admin')
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
-                        You're logged in as Super Admin | Admin!
-                    </div>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    @role('super-admin|admin')
+                        {{ __('You are logged in as Admin!') }}
+                    @else
+                        {{ __('You are logged in!') }}
+                    @endrole
+                    <select name="role[]" class="col-12 select2-multiple" multiple>
+                        <option value="1">Admin</option>
+                    </select>
+                    <table class="table table-bordered" id="users_table">
+                        <thead>
+                             <tr>
+                               <th>No</th>
+                               <th>Name</th>
+                               <th>Email</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{ 1 }}</td>
+                            <td>{{ 2 }}</td>
+                            <td>{{ 3 }}</td>
+                          </tr>
+                          <tr>
+                            <td>{{ 2 }}</td>
+                            <td>{{ 3 }}</td>
+                            <td>{{ 1 }}</td>
+                          </tr>
+                          <tr>
+                            <td>{{ 3 }}</td>
+                            <td>{{ 1 }}</td>
+                            <td>{{ 2 }}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <textarea class="wysiwyg"></textarea>
+                    <input type="file" />
                 </div>
             </div>
         </div>
-    @else
-        @can('edit articles')
-            <div class="py-12">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="p-6 bg-white border-b border-gray-200">
-                            You're logged in as normal user!
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endcan
-    @endrole
+    </div>
+</div>
 
-</x-app-layout>
+<script type="module">
+    $(document).ready(function() {
+        // Select2 Multiple
+        $('.select2-multiple').select2({
+            placeholder: "Select",
+            allowClear: true
+        });
+        $(function () {
+            $('#users_table').DataTable({
+                processing: true,
+                serverSide: false
+            });
+        });
+        ClassicEditor
+            .create( document.querySelector('.wysiwyg') )
+            .catch( error => {
+                console.error( error );
+        } );
+        // Get a reference to the file input element
+        const inputElement = document.querySelector('input[type="file"]');
+
+        // Create a FilePond instance
+        const pond = FilePond.create(inputElement);
+    });
+</script>
+@endsection

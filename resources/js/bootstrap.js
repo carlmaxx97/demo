@@ -1,5 +1,28 @@
-import _ from 'lodash';
+import _ from 'lodash'
 window._ = _;
+
+import $ from 'jquery';
+window.$ = window.jQuery = $
+
+import select2 from 'select2'
+select2();
+
+import swal from 'sweetalert2'
+window.Swal = swal;
+
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic/build/ckeditor'
+window.ClassicEditor = ClassicEditor;
+
+import * as FilePond from 'filepond';
+window.FilePond = FilePond
+
+import Datatable from 'datatables'
+Datatable();
+
+import * as Popper from '@popperjs/core'
+window.Popper = Popper
+
+import 'bootstrap'
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -26,7 +49,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
 //     key: import.meta.env.VITE_PUSHER_APP_KEY,
-//     wsHost: import.meta.env.VITE_PUSHER_HOST ? import.meta.env.VITE_PUSHER_HOST : `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
+//     wsHost: import.meta.env.VITE_PUSHER_HOST ?? `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
 //     wsPort: import.meta.env.VITE_PUSHER_PORT ?? 80,
 //     wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
