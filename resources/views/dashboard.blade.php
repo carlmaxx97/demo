@@ -62,12 +62,14 @@
             placeholder: "Select",
             allowClear: true
         });
+        // Datatable
         $(function () {
             $('#users_table').DataTable({
                 processing: true,
                 serverSide: false
             });
         });
+        //Ckeditor
         ClassicEditor
             .create( document.querySelector('.wysiwyg') )
             .catch( error => {
