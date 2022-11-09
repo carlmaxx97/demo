@@ -14,7 +14,15 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @production
+        @php
+            $manifest = json_decode(file_get_contents(asset('build/manifest.json')), true);
+        @endphp
+        <link rel="stylesheet" href="{{ asset('build/'.$manifest['resources/sass/app.scss']['file']) }}">
+        <script type="module" src="{{ asset('build/'.$manifest['resources/js/app.js']['file']) }}"></script>
+    @else
+        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @endproduction
 </head>
 <body>
     <div id="app">

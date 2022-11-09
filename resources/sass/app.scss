@@ -4,9 +4,22 @@
 @import 'variables';
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+// BootstrapIcons
+@import 'bootstrap-icons/font/bootstrap-icons.css'; // needs additional webpack config!
+// FontAwesome
+@import '@fortawesome/fontawesome-free/css/all.css';
 // Select2
 @import "select2/dist/css/select2.css";
+// Select2-Bootstrap5
+@import "select2-bootstrap-5-theme/dist/select2-bootstrap-5-theme";
 // Filepond
 @import 'filepond/dist/filepond.css';
 // Datatables
-@import 'datatables/media/css/jquery.dataTables.css';
+// @import 'datatables/media/css/jquery.dataTables.css';
+// Datatables-Bootstrap5
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.css';
+// FullCalendar
+@import '@fullcalendar/common/main.css';
+@import '@fullcalendar/daygrid/main.css';
+@import '@fullcalendar/timegrid/main.css';
+@import '@fullcalendar/list/main.css';

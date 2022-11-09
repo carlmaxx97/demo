@@ -16,8 +16,28 @@ window.ClassicEditor = ClassicEditor;
 import * as FilePond from 'filepond';
 window.FilePond = FilePond
 
-import Datatable from 'datatables'
-Datatable();
+import { Calendar } from '@fullcalendar/core';
+window.Calendar = Calendar;
+
+import interactionPlugin from '@fullcalendar/interaction';
+window.interactionPlugin = interactionPlugin;
+
+import dayGridPlugin from '@fullcalendar/daygrid';
+window.dayGridPlugin = dayGridPlugin;
+
+import timeGridPlugin from '@fullcalendar/timegrid';
+window.timeGridPlugin = timeGridPlugin;
+
+import listPlugin from '@fullcalendar/list';
+window.listPlugin = listPlugin;
+
+import bootstrap5Plugin from '@fullcalendar/bootstrap5';
+window.bootstrap5Plugin = bootstrap5Plugin;
+
+// import Datatable from 'datatables'
+// Datatable();
+
+import 'datatables.net-bs5'
 
 import * as Popper from '@popperjs/core'
 window.Popper = Popper
