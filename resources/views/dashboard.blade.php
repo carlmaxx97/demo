@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header"><i class="fa-solid fa-chart-line"></i> {{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -18,10 +18,20 @@
                     @else
                         {{ __('You are logged in!') }}
                     @endrole
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa-solid fa-chart-line"></i> {{ __('Select2') }}</div>
+                <div class="card-body">
                     <select name="role[]" class="col-12 select2-multiple" multiple>
                         <option value="1">Admin</option>
                         <option value="2">Super Admin</option>
                     </select>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa-solid fa-chart-line"></i> {{ __('Datatable') }}</div>
+                <div class="card-body">
                     <table class="table table-bordered" id="users_table">
                         <thead>
                              <tr>
@@ -50,8 +60,23 @@
                           @endfor
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa-solid fa-chart-line"></i> {{ __('Ckeditor5') }}</div>
+                <div class="card-body">
                     <textarea class="wysiwyg"></textarea>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa-solid fa-chart-line"></i> {{ __('Filepond') }}</div>
+                <div class="card-body">
                     <input type="file" />
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa-solid fa-chart-line"></i> {{ __('FullCalendar') }}</div>
+                <div class="card-body">
                     <div id="calendar"></div>
                 </div>
             </div>
